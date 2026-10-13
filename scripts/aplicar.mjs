@@ -395,6 +395,19 @@ function vistaMarca(m) {
 const sprite = [simbolosEspecies(), ...marcas.map(simbolosMarca)].join('\n');
 const largoPalabra = t => Math.max(...t.split(/\s+/).map(p => p.length));
 
+/* cortina compuesta (opcional): marca/cortina.svg trae su propio dibujo (el sol que sale y las
+   letras) y la silueta del sol (data-sol) es el hueco. Sin ese archivo, la cortina de siempre:
+   el isotipo se traza y se rellena. */
+let cortinaComp = null;
+if (existe('marca/cortina.svg')) {
+  const csv = leer('marca/cortina.svg');
+  const vbC = leerViewBox(csv);
+  const dSol = (csv.match(/data-sol\s+d="([^"]+)"/) || [])[1];
+  const centro = (csv.match(/data-hueco-centro="([\d.\s-]+)"/) || [])[1];
+  if (!dSol || !centro) errores.push('marca/cortina.svg: falta el path con data-sol o data-hueco-centro');
+  else cortinaComp = { vb: vbTexto(vbC), interior: interior(csv), hueco: dSol, iso: vbC[2] + ' ' + centro.trim() };
+}
+
 const [, , cvw, cvh] = principal.iso.vb;
 const vista = {
   ...negocio,
@@ -437,10 +450,13 @@ const vista = {
   anio_actual: new Date().getFullYear(),
   sprite,
   cortina: {
-    vb: vbTexto(principal.iso.vb),
+    vb: cortinaComp ? cortinaComp.vb : vbTexto(principal.iso.vb),
     silueta: principal.iso.silueta,
-    hueco: principal.ventana.d,
-    hueco_vb: vbTexto(principal.ventana.vb),
+    compuesta: !!cortinaComp,
+    interior: cortinaComp ? cortinaComp.interior : '',
+    hueco_iso: cortinaComp ? cortinaComp.iso : '',
+    hueco: cortinaComp ? cortinaComp.hueco : principal.ventana.d,
+    hueco_vb: cortinaComp ? cortinaComp.vb : vbTexto(principal.ventana.vb),
     detalles: principal.iso.tipo === 'isotipo' ? principal.iso.detalles : []
   },
   schema_json: jsonEnScript(schema),

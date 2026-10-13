@@ -35,7 +35,7 @@
 </svg>
 
 <!-- ───────── Cortina: el isotipo se dibuja y la página aparece a través de él ───────── -->
-<div class="cortina" id="cortina" aria-hidden="true" data-vb-hueco="{{cortina.hueco_vb}}">
+<div class="cortina" id="cortina" aria-hidden="true" data-vb-hueco="{{cortina.hueco_vb}}" data-hueco-iso="{{cortina.hueco_iso}}">
   <svg class="cortina__lienzo" id="cortina-lienzo" preserveAspectRatio="none">
     <defs>
       <!-- máscara en userSpaceOnUse con x=0 y=0: por defecto empieza en −10 %.
@@ -49,12 +49,13 @@
     <rect class="cortina__telon" x="0" y="0" width="100%" height="100%" mask="url(#cortina-mascara)"/>
   </svg>
   <div class="cortina__centro">
-    <svg class="cortina__isotipo" id="cortina-isotipo" viewBox="{{cortina.vb}}" overflow="visible">
+    {{#cortina.compuesta}}<svg class="cortina__isotipo cortina__isotipo--logo" id="cortina-isotipo" viewBox="{{cortina.vb}}" overflow="visible">{{{cortina.interior}}}</svg>{{/cortina.compuesta}}
+    {{^cortina.compuesta}}<svg class="cortina__isotipo" id="cortina-isotipo" viewBox="{{cortina.vb}}" overflow="visible">
       <path class="cortina__relleno" d="{{cortina.silueta}}"/>
       <path class="cortina__trazo" d="{{cortina.silueta}}" pathLength="1"/>
       {{#cortina.detalles}}<path class="cortina__trazo cortina__trazo--detalle" d="{{.}}" pathLength="1"/>{{/cortina.detalles}}
     </svg>
-    <p class="cortina__nombre" data-nombre="nombre">{{nombre}}</p>
+    <p class="cortina__nombre" data-nombre="nombre">{{nombre}}</p>{{/cortina.compuesta}}
   </div>
 </div>
 

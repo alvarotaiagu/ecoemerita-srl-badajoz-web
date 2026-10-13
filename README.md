@@ -16,4 +16,7 @@ La clínica no publica su horario en su web actual, así que esta versión no lo
 muestra: ni la tabla, ni el «abierto ahora». Cuando lo confirme, se pone en
 `negocio.json` (`horario`) y se vuelve a aplicar.
 
+**Cortina de entrada:** `marca/cortina.svg` (el sol del logo y las letras) y `js/main.js`.
+Se ve una vez por pestaña; para verla otra vez, abre la web con `?cortina` al final de la dirección.
+
 Borrador de trabajo: sin indexar (`noindex`).

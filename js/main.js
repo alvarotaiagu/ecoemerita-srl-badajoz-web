@@ -154,10 +154,13 @@
     var cort = $('#cortina');
     if (!cort) return;
     var hecho = false;
+    var linea = null;
 
     function retirar() {
       if (hecho) return;
       hecho = true;
+      if (linea) linea.kill();
+      try { sessionStorage.setItem('cortina-vista', '1'); } catch (e) {}
       cort.classList.add('fuera');
       document.body.style.removeProperty('overflow');
       if (lenis) lenis.start();
@@ -165,11 +168,20 @@
       document.dispatchEvent(new CustomEvent('cortina-retirada'));
     }
 
-    if (!movimiento) {
-      /* sin GSAP o con movimiento reducido se retira igual: nunca tapa la página */
-      setTimeout(retirar, reduce ? 300 : 120);
+    /* una sola vez por pestaña: al recargar o volver a la portada no se repite
+       (con ?cortina en la dirección se fuerza, para enseñarla) */
+    var yaVista = false;
+    try { yaVista = sessionStorage.getItem('cortina-vista') === '1' && !/[?&]cortina/.test(location.search); } catch (e) {}
+
+    if (!movimiento || yaVista) {
+      /* sin GSAP, con movimiento reducido o ya vista se retira igual: nunca tapa la página */
+      setTimeout(retirar, reduce ? 300 : (yaVista ? 0 : 120));
       return;
     }
+
+    /* un clic o una tecla y se salta */
+    cort.addEventListener('click', retirar);
+    document.addEventListener('keydown', function saltar(e) { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { retirar(); document.removeEventListener('keydown', saltar); } });
 
     /* red de seguridad: pase lo que pase, a los 6,5 s la cortina se va */
     setTimeout(retirar, 6500);
@@ -187,6 +199,9 @@
     var vbH = (cort.getAttribute('data-vb-hueco') || '0 0 100 100').split(/\s+/).map(Number);
     var w = 0, h = 0, caja = null;
     var estado = { k: 1, r: 0 };
+    /* cortina compuesta: el hueco es la silueta del sol y crece desde el centro del sol, no de la caja */
+    var isoDatos = (cort.getAttribute('data-hueco-iso') || '').split(/\s+/).map(Number);
+    var comp = !!$('.cortina__sol', cort) && isoDatos.length === 3 && isoDatos.every(isFinite);
 
     function medir() {
       w = window.innerWidth; h = window.innerHeight;
@@ -196,6 +211,13 @@
     }
     function pintar() {
       if (!caja) return;
+      if (comp) {
+        var sc = caja.width / isoDatos[0];
+        var hx = caja.left + isoDatos[1] * sc, hy = caja.top + isoDatos[2] * sc;
+        hueco.setAttribute('transform', 'translate(' + hx + ' ' + hy + ') scale(' + (sc * estado.k) + ') translate(' + -isoDatos[1] + ' ' + -isoDatos[2] + ')');
+        circulo.setAttribute('cx', hx); circulo.setAttribute('cy', hy); circulo.setAttribute('r', estado.r);
+        return;
+      }
       /* el hueco ocupa exactamente el sitio del isotipo dibujado y crece desde ahí */
       var cx = caja.left + caja.width / 2, cy = caja.top + caja.height / 2;
       var s = Math.min(caja.width / vbH[2], caja.height / vbH[3]) * estado.k;
@@ -210,7 +232,26 @@
       var kFinal = (Math.max(w, h) / Math.max(caja.width, 1)) * 2.6;
       hueco.setAttribute('transform', 'scale(0)');
 
+      if (comp) {
+        /* «Amanecer»: el sol del logo sale sobre el horizonte, se escribe el nombre,
+           el sol se vuelve del color de la página y por él aparece la web (≈2,2 s) */
+        var sol = $('.cortina__sol', cort), letras = $('.cortina__letras', cort), horizonte = $('.cortina__trazo', cort);
+        var crema = css('--fondo');
+        var tc = gsap.timeline({ onComplete: retirar });
+        linea = tc;
+        tc.to(horizonte, { strokeDashoffset: 0, duration: 0.5, ease: 'power2.inOut', autoRound: false }, 0)
+          .fromTo(sol, { y: 320 }, { y: 0, duration: 0.85, ease: 'expo.out' }, 0.08)
+          .fromTo(letras, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0.38)
+          .to(letras, { opacity: 0, duration: 0.2, ease: 'power1.in' }, 1.05)
+          .to(sol, { fill: crema, duration: 0.25, ease: 'power1.inOut' }, 1.0)
+          .add(function () { pintar(); gsap.set(iso, { opacity: 0 }); }, 1.25)
+          .to(estado, { k: kFinal, duration: 0.95, ease: 'expo.inOut', onUpdate: pintar }, 1.25)
+          .to(estado, { r: diag * 0.62, duration: 0.7, ease: 'power3.in', onUpdate: pintar }, 1.5);
+        return;
+      }
+
       var tl = gsap.timeline({ onComplete: retirar });
+      linea = tl;
       /* autoRound:false o, con pathLength=1, GSAP redondea y el trazo salta de 1 a 0 */
       tl.to(trazos, { strokeDashoffset: 0, duration: 1.15, ease: 'power2.inOut', stagger: 0.12, autoRound: false }, 0)
         .to(nombre, { opacity: 1, duration: 0.6, ease: 'power1.out' }, 0.35)

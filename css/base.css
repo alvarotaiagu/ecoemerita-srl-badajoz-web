@@ -186,6 +186,10 @@ button { font: inherit; }
   pointer-events: none;
 }
 .cortina__isotipo { width: min(38vw, 190px); height: auto; overflow: visible; }
+.cortina__isotipo--logo { width: min(78vw, 400px); }
+.cortina__sol { fill: var(--acento-2); }
+.cortina__letras path { fill: var(--fondo); }
+.cortina__letras { opacity: 0; }
 .cortina__relleno { fill: var(--fondo); opacity: 0; }
 .cortina__trazo {
   fill: none; stroke: var(--sobre-cortina); stroke-width: 2.2;
