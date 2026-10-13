@@ -85,12 +85,14 @@
     "destacados": ["Medicina de especialidad", "Equipos de diagnóstico", "Exóticos y cetrería"]
   },
 
-  "hero_alt": "Un husky tumbado en la camilla mientras un veterinario le escucha el pecho con un estetoscopio",
+  "hero_alt": "Un golden retriever mirando de lado",
+  "instalaciones_rotulo": "Galería",
+  "instalaciones_titulo": "Perros, gatos, exóticos y aves de caza.",
   "instalaciones": [
-    { "foto": "media/instalaciones-1.jpg", "alt": "Fachada de la clínica con el rótulo «clínica veterinaria Emérita» sobre las ventanas", "pie": "Fachada" },
-    { "foto": "media/instalaciones-2.jpg", "alt": "La clínica vista desde la esquina, con el rótulo de Emérita y el toldo del escaparate", "pie": "Desde la esquina" },
-    { "foto": "media/instalaciones-3.jpg", "alt": "Escaparate de la clínica bajo el rótulo con ilustraciones de animales", "pie": "Escaparate" },
-    { "foto": "media/instalaciones-4.jpg", "alt": "Cartel junto a la puerta con los servicios: medicina general y de especialidad, equipos de diagnóstico, cirugía y laboratorio", "pie": "Servicios" }
+    { "foto": "media/instalaciones-1.jpg", "alt": "Un gatito gris sentado sobre un cojín rojo", "pie": "Gatos" },
+    { "foto": "media/instalaciones-2.jpg", "alt": "Un dragón barbudo, un reptil de compañía, sobre un suelo azulado", "pie": "Animales exóticos" },
+    { "foto": "media/instalaciones-3.jpg", "alt": "Un halcón peregrino con las alas abiertas sobre un guante de cetrero", "pie": "Cetrería" },
+    { "foto": "media/instalaciones-4.jpg", "alt": "Un cuenco blanco lleno de pienso sobre un suelo de madera", "pie": "Boutique y alimentación" }
   ],
 
   "preguntas": [

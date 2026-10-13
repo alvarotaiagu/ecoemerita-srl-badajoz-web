@@ -12,7 +12,7 @@
   },
   "logo_en_oscuro": "mono",
   "densidad": "marca",
-  "duotono": true,
+  "duotono": false,
   "forma_hero": "arco",
   "isotipo": "monograma",
   "nombre_inicial": "E"

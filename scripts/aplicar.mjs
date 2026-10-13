@@ -429,6 +429,8 @@ const vista = {
   consejos_titulo: negocio.consejos_titulo || 'Para cuidarle también en casa.',
   equipo,
   instalaciones_fotos: instalacionesFotos,
+  instalaciones_rotulo: negocio.instalaciones_rotulo || 'La clínica',
+  instalaciones_titulo: negocio.instalaciones_titulo || 'Pensada para que esperen tranquilos.',
   resenas,
   redes_lista: redesLista,
   hero_foto: heroFoto,
