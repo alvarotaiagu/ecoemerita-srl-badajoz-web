@@ -1,0 +1,19 @@
+{
+  "_leeme": "Marca de la clínica. Se regenera con scripts/marca-desde-logo.py; campos en RESKIN.md §3.",
+  "slug": "ecoemerita",
+  "personalidad": "cercana",
+  "pareja": "serif-calida",
+  "colores": {
+    "fondo": "#FFF8EC",
+    "superficie": "#FBEBD2",
+    "tinta": "#2F1410",
+    "acento": "#7E0303",
+    "acento2": "#F0A500"
+  },
+  "logo_en_oscuro": "mono",
+  "densidad": "marca",
+  "duotono": true,
+  "forma_hero": "arco",
+  "isotipo": "monograma",
+  "nombre_inicial": "E"
+}

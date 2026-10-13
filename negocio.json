@@ -1,0 +1,122 @@
+{
+  "_leeme": "Datos del negocio. Tras cambiarlos: node scripts/aplicar.mjs. Guía de campos en RESKIN.md §4.",
+
+  "demo": false,
+  "indexar": false,
+  "idioma": "es",
+  "url": "https://alvarotaiagu.github.io/ecoemerita-srl-badajoz-web/",
+
+  "nombre": "Clínica Veterinaria Emérita",
+  "nombre_corto": "Emérita",
+  "lema": "Veterinarios en Mérida, de la consulta a la peluquería.",
+  "entradilla": "Medicina general y de especialidad, cirugía y laboratorio, con los equipos de diagnóstico necesarios. Y además peluquería, piensos de alta gama, animales exóticos y cetrería.",
+
+  "direccion": {
+    "calle": "Avenida José Fernández López, 18 - bajo",
+    "cp": "06800",
+    "localidad": "Mérida",
+    "provincia": "Badajoz"
+  },
+  "mapa_consulta": "Clínica Veterinaria Emérita, Avenida José Fernández López 18, 06800 Mérida, Badajoz",
+
+  "telefono": "924 300 339",
+  "whatsapp": null,
+  "email": "clinicaemerita@gmail.com",
+  "cita": { "via": "telefono", "enlace": null },
+
+  "horario": null,
+  "cierres": [],
+
+  "especies": ["perro", "gato", "ave"],
+
+  "servicios": [
+    {
+      "id": "consulta", "activo": true,
+      "titulo": "Medicina general y de especialidad",
+      "texto": "Atención veterinaria para la salud y el bienestar de tu mascota, con los equipos de diagnóstico necesarios en la propia clínica.",
+      "incluye": ["Medicina general", "Medicina de especialidad", "Equipos de diagnóstico"]
+    },
+    {
+      "id": "cirugia", "activo": true,
+      "titulo": "Cirugía",
+      "texto": "Intervenciones quirúrgicas en la clínica, con el equipo veterinario que lleva el caso de principio a fin.",
+      "incluye": []
+    },
+    {
+      "id": "laboratorio", "activo": true,
+      "titulo": "Laboratorio",
+      "texto": "Pruebas de laboratorio para completar el diagnóstico sin salir de la clínica.",
+      "incluye": []
+    },
+    {
+      "id": "peluqueria", "activo": true,
+      "titulo": "Peluquería",
+      "texto": "Peluquería para perros y gatos a cargo de profesionales con amplia experiencia, para que tu mascota se vea y se sienta bien.",
+      "incluye": ["Peluquería canina", "Peluquería felina"]
+    },
+    {
+      "id": "exoticos", "activo": true,
+      "titulo": "Animales exóticos",
+      "texto": "Instalaciones y equipos adecuados para atender a mascotas exóticas, en horario normal y de urgencias.",
+      "incluye": ["Instalaciones adecuadas", "Equipos adecuados", "Personal cualificado"]
+    },
+    {
+      "id": "cetreria", "activo": true,
+      "titulo": "Cetrería",
+      "texto": "Cuidado y atención para las aves de caza y consultas sobre cetrería, porque la relación entre el cetrero y su halcón es muy importante.",
+      "incluye": []
+    },
+    {
+      "id": "boutique", "activo": true,
+      "titulo": "Boutique y alimentación",
+      "texto": "Complementos para tu mascota y una gran variedad de productos alimenticios, con pienso de alta gama.",
+      "incluye": ["Complementos", "Pienso de alta gama"]
+    }
+  ],
+
+  "urgencias": { "modo": "ninguno" },
+
+  "sobre": {
+    "titulo": "Cuidado profesional para mascotas y animales exóticos.",
+    "parrafos": [
+      "En Clínica Veterinaria Emérita nos dedicamos al cuidado y tratamiento profesional de mascotas y de animales exóticos, con equipos de diagnóstico para una atención integral.",
+      "Nuestro equipo de veterinarios te asesora de forma personalizada sobre el estado de salud de tu mascota."
+    ],
+    "destacados": ["Medicina de especialidad", "Equipos de diagnóstico", "Exóticos y cetrería"]
+  },
+
+  "hero_alt": "Un husky tumbado en la camilla mientras un veterinario le escucha el pecho con un estetoscopio",
+  "instalaciones": [
+    { "foto": "media/instalaciones-1.jpg", "alt": "Fachada de la clínica con el rótulo «clínica veterinaria Emérita» sobre las ventanas", "pie": "Fachada" },
+    { "foto": "media/instalaciones-2.jpg", "alt": "La clínica vista desde la esquina, con el rótulo de Emérita y el toldo del escaparate", "pie": "Desde la esquina" },
+    { "foto": "media/instalaciones-3.jpg", "alt": "Escaparate de la clínica bajo el rótulo con ilustraciones de animales", "pie": "Escaparate" },
+    { "foto": "media/instalaciones-4.jpg", "alt": "Cartel junto a la puerta con los servicios: medicina general y de especialidad, equipos de diagnóstico, cirugía y laboratorio", "pie": "Servicios" }
+  ],
+
+  "preguntas": [
+    { "p": "¿Cómo puedo contactar con la clínica?", "r": "Puedes llamar al 924 300 339 o escribir a clinicaemerita@gmail.com." },
+    { "p": "¿Atendéis animales exóticos?", "r": "Sí. Contamos con instalaciones y equipos adecuados para atender a mascotas exóticas, en horario normal y de urgencias." },
+    { "p": "¿Hay peluquería para mascotas?", "r": "Sí, hacemos peluquería canina y felina." },
+    { "p": "¿Puedo comprar el pienso en la clínica?", "r": "Sí. Tenemos una gran variedad de complementos y productos alimenticios, con pienso de alta gama." },
+    { "p": "¿Atendéis aves de caza?", "r": "Sí. Ofrecemos servicios relacionados con el cuidado de las aves de caza y atendemos consultas sobre cetrería." }
+  ],
+
+  "redes": { "instagram": null, "facebook": null },
+
+  "legal": {
+    "titular": "Clínica Veterinaria Emérita, S.L.",
+    "nif": "B06188627"
+  },
+
+  "modulos": {
+    "marquee": true,
+    "urgencias": false,
+    "primera_visita": false,
+    "sobre": true,
+    "equipo": false,
+    "instalaciones": true,
+    "resenas": false,
+    "consejos": false,
+    "preguntas": true
+  }
+}

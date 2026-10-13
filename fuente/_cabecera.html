@@ -1,0 +1,26 @@
+<header class="cabecera" id="cabecera">
+  <a class="cabecera__marca" href="{{pagina.inicio}}#inicio" aria-label="{{nombre}}, ir al inicio">
+    <span class="logo" aria-hidden="true">
+      <svg class="logo__original" viewBox="{{marca.logo_vb}}" data-vb="logo"><use href="#logo-{{marca.slug}}" data-uso="logo"/></svg>
+      <svg class="logo__mono" viewBox="{{marca.logo_vb}}" data-vb="logo"><use href="#logo-mono-{{marca.slug}}" data-uso="logo-mono"/></svg>
+    </span>
+  </a>
+  <!-- en el MISMO orden que las secciones de index.html (verificar.mjs lo comprueba) -->
+  <nav class="cabecera__nav" id="menu" aria-label="Principal">
+    <a href="{{pagina.inicio}}#especies">Especies</a>
+    <a href="{{pagina.inicio}}#servicios">Servicios</a>
+    {{#urg.activo}}<a href="{{pagina.inicio}}#urgencias">Urgencias</a>{{/urg.activo}}
+    {{#modulos.sobre}}<a href="{{pagina.inicio}}#sobre">Nosotros</a>{{/modulos.sobre}}
+    {{#modulos.equipo}}<a href="{{pagina.inicio}}#equipo">Equipo</a>{{/modulos.equipo}}
+    {{#modulos.consejos}}<a href="{{pagina.inicio}}#consejos">Consejos</a>{{/modulos.consejos}}
+    <a href="{{pagina.inicio}}#visita">{{#hay_horario}}Horario{{/hay_horario}}{{^hay_horario}}Contacto{{/hay_horario}}</a>
+    <a class="cabecera__cita-movil" href="{{cita.href}}"{{#cita.externa}} target="_blank" rel="noopener"{{/cita.externa}}>{{cita.texto}}</a>
+  </nav>
+  <a class="boton boton--cita cabecera__cita iman" href="{{cita.href}}"{{#cita.externa}} target="_blank" rel="noopener"{{/cita.externa}}>
+    <svg width="18" height="18" aria-hidden="true"><use href="#{{cita.icono}}"/></svg><span>Pedir cita</span>
+  </a>
+  <button class="hamburguesa" id="hamburguesa" type="button" aria-expanded="false" aria-controls="menu">
+    <span class="hamburguesa__linea"></span><span class="hamburguesa__linea"></span>
+    <span class="visualmente-oculto">Abrir menú</span>
+  </button>
+</header>

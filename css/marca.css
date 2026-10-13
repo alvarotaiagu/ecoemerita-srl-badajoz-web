@@ -1,0 +1,67 @@
+/* GENERADO por scripts/aplicar.mjs desde marca/marca.json.
+   No editar a mano. Es el ÚNICO archivo con colores y fuentes de la marca. */
+:root {
+  --fondo: #FFF8EC;
+  --superficie: #FBEBD2;
+  --superficie-2: #F1E0C8;
+  --tinta: #2F1410;
+  --apagado: #7A665F;
+  --linea: #DED4C9;
+  --linea-fuerte: #B8AAA1;
+  --acento: #7E0303;
+  --acento-2: #F0A500;
+  --acento-texto: #7E0303;
+  --boton: #7E0303;
+  --sobre-boton: #FFFFFF;
+  --sobre-acento: #FFFFFF;
+  --banda: #2F1410;
+  --sobre-banda: #FFF8EC;
+  --apagado-banda: #93817A;
+  --acento-banda: #B9746E;
+  --linea-banda: #543D38;
+  --cortina: #2F1410;
+  --sobre-cortina: #B9746E;
+  --foto-luz: #FFE0DB;
+  --foto-sombra: #2C0805;
+  --sombra-color: #180A08;
+  --foco: #7E0303;
+  --muestra-a: #7E0303;
+  --muestra-b: #014F1E;
+  --muestra-c: #22348F;
+  --f-display: 'Young Serif', Georgia, 'Times New Roman', serif;
+  --f-texto: 'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --peso-display: 400;
+  --tracking-display: -0.02em;
+  --escala-display: 1.028;
+  --ancho-letra: 0.508;
+  --ventana-aspecto: 90 / 110;
+  --logo-aspecto: 1368.762 / 1161.639;
+}
+:root[data-paleta="b"] {
+  --acento: #014F1E;
+  --acento-2: #0DCFD1;
+  --acento-texto: #014F1E;
+  --boton: #014F1E;
+  --sobre-boton: #FFFFFF;
+  --sobre-acento: #FFFFFF;
+  --acento-banda: #628F6C;
+  --cortina: #2F1410;
+  --sobre-cortina: #628F6C;
+  --foto-luz: #D8EFDB;
+  --foto-sombra: #2C0805;
+  --foco: #014F1E;
+}
+:root[data-paleta="c"] {
+  --acento: #22348F;
+  --acento-2: #DE93FB;
+  --acento-texto: #22348F;
+  --boton: #22348F;
+  --sobre-boton: #FFFFFF;
+  --sobre-acento: #FFFFFF;
+  --acento-banda: #7A82B4;
+  --cortina: #2F1410;
+  --sobre-cortina: #7A82B4;
+  --foto-luz: #DFE8FE;
+  --foto-sombra: #2C0805;
+  --foco: #22348F;
+}
